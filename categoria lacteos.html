@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Biltmore Lácteos</title>
+    <link rel="stylesheet" href="diseño lacteos.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="brand">
+            <h1>Biltmore</h1>
+        </div>
+        <ul class="nav-links">
+            <li class="nav-item">
+                <a href="index.html">Home</a>
+                <ul class="submenu">
+                    <li><a href="tienda.html">Tienda</a></li>
+                    <li><a href="cafeteria.html">Cafetería</a></li>
+                </ul>
+            </li>
+            <li class="nav-item"><a href="contacto.html">Contacto</a></li>
+        </ul>
+    </nav>
+
+    <main>
+        <section class="products">
+            <!-- Producto 1 -->
+            <div class="product">
+                <img src="image1.jpg" alt="Producto 1">
+                <h2>Leche Fresca</h2>
+                <p>Precio: $2.50 por litro</p>
+                <div class="rating">★★★☆☆</div>
+                <div class="quantity-controls">
+                    <button onclick="updateQuantity('Leche Fresca', -1)">-</button>
+                    <span id="quantity-LecheFresca">0</span>
+                    <button onclick="updateQuantity('Leche Fresca', 1)">+</button>
+                </div>
+            </div>
+            <!-- Producto 2 -->
+            <div class="product">
+                <img src="image2.jpg" alt="Producto 2">
+                <h2>Queso Cheddar</h2>
+                <p>Precio: $5.00 por libra</p>
+                <div class="rating">★★★★☆</div>
+                <div class="quantity-controls">
+                    <button onclick="updateQuantity('Queso Cheddar', -1)">-</button>
+                    <span id="quantity-QuesoCheddar">0</span>
+                    <button onclick="updateQuantity('Queso Cheddar', 1)">+</button>
+                </div>
+            </div>
+            <!-- Producto 3 -->
+            <div class="product">
+                <img src="image3.jpg" alt="Producto 3">
+                <h2>Yogur Natural</h2>
+                <p>Precio: $3.00 por unidad</p>
+                <div class="rating">★★★★☆</div>
+                <div class="quantity-controls">
+                    <button onclick="updateQuantity('Yogur Natural', -1)">-</button>
+                    <span id="quantity-YogurNatural">0</span>
+                    <button onclick="updateQuantity('Yogur Natural', 1)">+</button>
+                </div>
+            </div>
+            <!-- Producto 4 -->
+            <div class="product">
+                <img src="image4.jpg" alt="Producto 4">
+                <h2>Queso Mozzarella</h2>
+                <p>Precio: $6.00 por libra</p>
+                <div class="rating">★★★★★</div>
+                <div class="quantity-controls">
+                    <button onclick="updateQuantity('Queso Mozzarella', -1)">-</button>
+                    <span id="quantity-QuesoMozzarella">0</span>
+                    <button onclick="updateQuantity('Queso Mozzarella', 1)">+</button>
+                </div>
+            </div>
+            <!-- Producto 5 -->
+            <div class="product">
+                <img src="image5.jpg" alt="Producto 5">
+                <h2>Crema Ácida</h2>
+                <p>Precio: $4.00 por unidad</p>
+                <div class="rating">★★★☆☆</div>
+                <div class="quantity-controls">
+                    <button onclick="updateQuantity('Crema Ácida', -1)">-</button>
+                    <span id="quantity-CremaAcida">0</span>
+                    <button onclick="updateQuantity('Crema Ácida', 1)">+</button>
+                </div>
+            </div>
+            <!-- Producto 6 -->
+            <div class="product">
+                <img src="image6.jpg" alt="Producto 6">
+                <h2>Leche de Soja</h2>
+                <p>Precio: $2.80 por litro</p>
+                <div class="rating">★★☆☆☆</div>
+                <div class="quantity-controls">
+                    <button onclick="updateQuantity('Leche de Soja', -1)">-</button>
+                    <span id="quantity-LecheDeSoja">0</span>
+                    <button onclick="updateQuantity('Leche de Soja', 1)">+</button>
+                </div>
+            </div>
+            <!-- Producto 7 -->
+            <div class="product">
+                <img src="image7.jpg" alt="Producto 7">
+                <h2>Queso Cottage</h2>
+                <p>Precio: $5.50 por libra</p>
+                <div class="rating">★★★★☆</div>
+                <div class="quantity-controls">
+                    <button onclick="updateQuantity('Queso Cottage', -1)">-</button>
+                    <span id="quantity-QuesoCottage">0</span>
+                    <button onclick="updateQuantity('Queso Cottage', 1)">+</button>
+                </div>
+            </div>
+            <!-- Producto 8 -->
+            <div class="product">
+                <img src="image8.jpg" alt="Producto 8">
+                <h2>Yogur Griego</h2>
+                <p>Precio: $3.50 por unidad</p>
+                <div class="rating">★★★★☆</div>
+                <div class="quantity-controls">
+                    <button onclick="updateQuantity('Yogur Griego', -1)">-</button>
+                    <span id="quantity-YogurGriego">0</span>
+                    <button onclick="updateQuantity('Yogur Griego', 1)">+</button>
+                </div>
+            </div>
+            <!-- Producto 9 -->
+            <div class="product">
+                <img src="image9.jpg" alt="Producto 9">
+                <h2>Leche de Almendra</h2>
+                <p>Precio: $3.20 por litro</p>
+                <div class="rating">★★☆☆☆</div>
+                <div class="quantity-controls">
+                    <button onclick="updateQuantity('Leche de Almendra', -1)">-</button>
+                    <span id="quantity-LecheDeAlmendra">0</span>
+                    <button onclick="updateQuantity('Leche de Almendra', 1)">+</button>
+                </div>
+            </div>
+            <!-- Producto 10 -->
+            <div class="product">
+                <img src="image10.jpg" alt="Producto 10">
+                <h2>Queso Azul</h2>
+                <p>Precio: $7.00 por libra</p>
+                <div class="rating">★★★★★</div>
+                <div class="quantity-controls">
+                    <button onclick="updateQuantity('Queso Azul', -1)">-</button>
+                    <span id="quantity-QuesoAzul">0</span>
+                    <button onclick="updateQuantity('Queso Azul', 1)">+</button>
+                </div>
+            </div>
+            <!-- Producto 11 -->
+            <div class="product">
+                <img src="image11.jpg" alt="Producto 11">
+                <h2>Yogur de Fresa</h2>
+                <p>Precio: $3.10 por unidad</p>
+                <div class="rating">★★★☆☆</div>
+                <div class="quantity-controls">
+                    <button onclick="updateQuantity('Yogur de Fresa', -1)">-</button>
+                    <span id="quantity-YogurDeFresa">0</span>
+                    <button onclick="updateQuantity('Yogur de Fresa', 1)">+</button>
+                </div>
+            </div>
+            <!-- Producto 12 -->
+            <div class="product">
+                <img src="image12.jpg" alt="Producto 12">
+                <h2>Leche de Coco</h2>
+                <p>Precio: $4.50 por litro</p>
+                <div class="rating">★★★☆☆</div>
+                <div class="quantity-controls">
+                    <button onclick="updateQuantity('Leche de Coco', -1)">-</button>
+                    <span id="quantity-LecheDeCoco">0</span>
+                    <button onclick="updateQuantity('Leche de Coco', 1)">+</button>
+                </div>
+            </div>
+            <!-- Producto 13 -->
+            <div class="product">
+                <img src="image13.jpg" alt="Producto 13">
+                <h2>Queso Parmesano</h2>
+                <p>Precio: $8.00 por libra</p>
+                <div class="rating">★★★★★</div>
+                <div class="quantity-controls">
+                    <button onclick="updateQuantity('Queso Parmesano', -1)">-</button>
+                    <span id="quantity-QuesoParmesano">0</span>
+                    <button onclick="updateQuantity('Queso Parmesano', 1)">+</button>
+                </div>
+            </div>
+            <!-- Producto 14 -->
+            <div class="product">
+                <img src="image14.jpg" alt="Producto 14">
+                <h2>Yogur de Mora</h2>
+                <p>Precio: $3.20 por unidad</p>
+                <div class="rating">★★★☆☆</div>
+                <div class="quantity-controls">
+                    <button onclick="updateQuantity('Yogur de Mora', -1)">-</button>
+                    <span id="quantity-YogurDeMora">0</span>
+                    <button onclick="updateQuantity('Yogur de Mora', 1)">+</button>
+                </div>
+            </div>
+            <!-- Producto 15 -->
+            <div class="product">
+                <img src="image15.jpg" alt="Producto 15">
+                <h2>Crema Batida</h2>
+                <p>Precio: $4.20 por unidad</p>
+                <div class="rating">★★★☆☆</div>
+                <div class="quantity-controls">
+                    <button onclick="updateQuantity('Crema Batida', -1)">-</button>
+                    <span id="quantity-CremaBatida">0</span>
+                    <button onclick="updateQuantity('Crema Batida', 1)">+</button>
+                </div>
+            </div>
+        </section>
+
+        <section class="cart">
+            <h2>Carrito de Compras</h2>
+            <table id="cart-table">
+                <thead>
+                    <tr>
+                        <th>Nombre del Producto</th>
+                        <th>Precio</th>
+                        <th>Cantidad</th>
+                        <th>Total</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- Productos se agregarán dinámicamente aquí -->
+                </tbody>
+                <tfoot>
+                    <tr>
+                        <td colspan="3">Total</td>
+                        <td id="total-price">$0.00</td>
+                    </tr>
+                </tfoot>
+            </table>
+            <button onclick="sendWhatsAppMessage()">Solicitar</button>
+        </section>
+    </main>
+
+    <script>
+        const productPrices = {
+            'Leche Fresca': 2.50,
+            'Queso Cheddar': 5.00,
+            'Yogur Natural': 3.00,
+            'Queso Mozzarella': 6.00,
+            'Crema Ácida': 4.00,
+            'Leche de Soja': 2.80,
+            'Queso Cottage': 5.50,
+            'Yogur Griego': 3.50,
+            'Leche de Almendra': 3.20,
+            'Queso Azul': 7.00,
+            'Yogur de Fresa': 3.10,
+            'Leche de Coco': 4.50,
+            'Queso Parmesano': 8.00,
+            'Yogur de Mora': 3.20,
+            'Crema Batida': 4.20
+        };
+
+        let cart = {};
+
+        function updateQuantity(product, change) {
+            if (!cart[product]) {
+                cart[product] = 0;
+            }
+            cart[product] += change;
+
+            if (cart[product] <= 0) {
+                delete cart[product];
+            }
+
+            updateCartTable();
+        }
+
+        function updateCartTable() {
+            const tableBody = document.querySelector('#cart-table tbody');
+            tableBody.innerHTML = '';
+
+            let totalPrice = 0;
+
+            for (const [product, quantity] of Object.entries(cart)) {
+                if (quantity > 0) {
+                    const price = productPrices[product];
+                    const row = document.createElement('tr');
+                    row.innerHTML = `
+                        <td>${product}</td>
+                        <td>$${price.toFixed(2)}</td>
+                        <td>${quantity}</td>
+                        <td>$${(price * quantity).toFixed(2)}</td>
+                    `;
+                    tableBody.appendChild(row);
+                    totalPrice += price * quantity;
+                }
+            }
+
+            document.querySelector('#total-price').textContent = `$${totalPrice.toFixed(2)}`;
+        }
+
+        function sendWhatsAppMessage() {
+            let message = 'Hola, quiero solicitar:\n\n';
+            for (const [product, quantity] of Object.entries(cart)) {
+                if (quantity > 0) {
+                    const price = productPrices[product];
+                    message += `${product} - Cantidad: ${quantity}, Precio: $${price.toFixed(2)}\n`;
+                }
+            }
+            message += `\nTotal: $${document.querySelector('#total-price').textContent.substring(1)}`;
+
+            const whatsappUrl = `https://wa.me/5356197673?text=${encodeURIComponent(message)}`;
+            window.open(whatsappUrl, '_blank');
+        }
+    </script>
+</body>
+</html>

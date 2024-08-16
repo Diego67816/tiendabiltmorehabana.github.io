@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Biltmore Cárnicos</title>
+    <link rel="stylesheet" href="diseño carnicos.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="brand">
+            <h1>Biltmore</h1>
+        </div>
+        <ul class="nav-links">
+            <li class="nav-item">
+                <a href="index.html">Home</a>
+                <ul class="submenu">
+                    <li><a href="tienda.html">Tienda</a></li>
+                    <li><a href="cafeteria.html">Cafetería</a></li>
+                </ul>
+            </li>
+            <li class="nav-item"><a href="contacto.html">Contacto</a></li>
+        </ul>
+    </nav>
+
+    <main>
+        <section class="products-section">
+            <h2>Productos Cárnicos</h2>
+            <div class="products">
+                <!-- Producto 1 -->
+                <div class="product">
+                    <img src="carne-vacuna.jpg" alt="Carne Vacuna">
+                    <h2>Carne Vacuna</h2>
+                    <p>Precio: $15.00 por libra</p>
+                    <div class="rating">★★★★★</div>
+                    <div class="quantity-controls">
+                        <button onclick="updateQuantity('Carne Vacuna', -1)">-</button>
+                        <span id="quantity-CarneVacuna">0</span>
+                        <button onclick="updateQuantity('Carne Vacuna', 1)">+</button>
+                    </div>
+                </div>
+                <!-- Producto 2 -->
+                <div class="product">
+                    <img src="pollo.jpg" alt="Pollo">
+                    <h2>Pollo</h2>
+                    <p>Precio: $8.00 por libra</p>
+                    <div class="rating">★★★★☆</div>
+                    <div class="quantity-controls">
+                        <button onclick="updateQuantity('Pollo', -1)">-</button>
+                        <span id="quantity-Pollo">0</span>
+                        <button onclick="updateQuantity('Pollo', 1)">+</button>
+                    </div>
+                </div>
+                <!-- Producto 3 -->
+                <div class="product">
+                    <img src="cerdo.jpg" alt="Carne de Cerdo">
+                    <h2>Carne de Cerdo</h2>
+                    <p>Precio: $10.00 por libra</p>
+                    <div class="rating">★★★★☆</div>
+                    <div class="quantity-controls">
+                        <button onclick="updateQuantity('Carne de Cerdo', -1)">-</button>
+                        <span id="quantity-Cerdo">0</span>
+                        <button onclick="updateQuantity('Carne de Cerdo', 1)">+</button>
+                    </div>
+                </div>
+                <!-- Producto 4 -->
+                <div class="product">
+                    <img src="chorizo.jpg" alt="Chorizo">
+                    <h2>Chorizo</h2>
+                    <p>Precio: $12.00 por libra</p>
+                    <div class="rating">★★★☆☆</div>
+                    <div class="quantity-controls">
+                        <button onclick="updateQuantity('Chorizo', -1)">-</button>
+                        <span id="quantity-Chorizo">0</span>
+                        <button onclick="updateQuantity('Chorizo', 1)">+</button>
+                    </div>
+                </div>
+                <!-- Producto 5 -->
+                <div class="product">
+                    <img src="pescado.jpg" alt="Pescado">
+                    <h2>Pescado</h2>
+                    <p>Precio: $14.00 por libra</p>
+                    <div class="rating">★★★★★</div>
+                    <div class="quantity-controls">
+                        <button onclick="updateQuantity('Pescado', -1)">-</button>
+                        <span id="quantity-Pescado">0</span>
+                        <button onclick="updateQuantity('Pescado', 1)">+</button>
+                    </div>
+                </div>
+            </div>
+
+            <section class="cart">
+                <h2>Carrito de Compras</h2>
+                <table id="cart-table">
+                    <thead>
+                        <tr>
+                            <th>Nombre del Producto</th>
+                            <th>Precio</th>
+                            <th>Cantidad</th>
+                            <th>Total</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!-- Productos se agregarán dinámicamente aquí -->
+                    </tbody>
+                    <tfoot>
+                        <tr>
+                            <td colspan="3">Total</td>
+                            <td id="total-price">$0.00</td>
+                        </tr>
+                    </tfoot>
+                </table>
+                <button onclick="sendWhatsAppMessage()">Solicitar</button>
+            </section>
+        </section>
+    </main>
+
+    <script>
+        const productPrices = {
+            'Carne Vacuna': 15.00,
+            'Pollo': 8.00,
+            'Carne de Cerdo': 10.00,
+            'Chorizo': 12.00,
+            'Pescado': 14.00
+        };
+
+        let cart = {};
+
+        function updateQuantity(product, change) {
+            if (!cart[product]) {
+                cart[product] = 0;
+            }
+            cart[product] += change;
+
+            if (cart[product] <= 0) {
+                delete cart[product];
+            }
+
+            updateCartTable();
+        }
+
+        function updateCartTable() {
+            const tableBody = document.querySelector('#cart-table tbody');
+            tableBody.innerHTML = '';
+
+            let totalPrice = 0;
+
+            for (const [product, quantity] of Object.entries(cart)) {
+                if (quantity > 0) {
+                    const price = productPrices[product];
+                    const row = document.createElement('tr');
+                    row.innerHTML = `
+                        <td>${product}</td>
+                        <td>$${price.toFixed(2)}</td>
+                        <td>${quantity}</td>
+                        <td>$${(price * quantity).toFixed(2)}</td>
+                    `;
+                    tableBody.appendChild(row);
+                    totalPrice += price * quantity;
+                }
+            }
+
+            document.querySelector('#total-price').textContent = `$${totalPrice.toFixed(2)}`;
+        }
+
+        function sendWhatsAppMessage() {
+            let message = 'Hola, quiero solicitar:\n\n';
+            for (const [product, quantity] of Object.entries(cart)) {
+                if (quantity > 0) {
+                    const price = productPrices[product];
+                    message += `${product} - Cantidad: ${quantity}, Precio: $${price.toFixed(2)}\n`;
+                }
+            }
+            message += `\nTotal: $${document.querySelector('#total-price').textContent.substring(1)}`;
+
+            const whatsappUrl = `https://wa.me/5356197673?text=${encodeURIComponent(message)}`;
+            window.open(whatsappUrl, '_blank');
+        }
+    </script>
+</body>
+</html>
